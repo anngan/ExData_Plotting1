@@ -2,7 +2,7 @@
 setwd("C:/Users/Name/Desktop/datasciencecoursera")
 library("data.table")
 
-#Organizing data: changing to date type and choosing the dates.
+#Reading and organizing data: changing to date type and choosing the dates.
 power1 <- data.table::fread(input = "household_power_consumption.txt", na.strings="?")
 power1[, Global_active_power := lapply(.SD, as.numeric), .SDcols = c("Global_active_power")]
 power1[, Date := lapply(.SD, as.Date, "%d/%m/%Y"), .SDcols = c("Date")]
